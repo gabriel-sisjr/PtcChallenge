@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Domain.Models.BrandModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Brands</h1>
+
+<p>
+    <a asp-action="Create" asp-controller="Brand">Create New Brand</a>
+</p>
+@if (Model.Count() != 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Change Status", "ChangeStatus", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div id="divMsg"></div>
+}
+else
+{
+    <div class="alert alert-warning text-center">
+        <p>No Content!</p>
+    </div>
+}

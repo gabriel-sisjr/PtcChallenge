@@ -1,0 +1,68 @@
+﻿@model Domain.Models.VehicleModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>VehicleModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Renavam" class="control-label"></label>
+                <input asp-for="Renavam" class="form-control" />
+                <span asp-validation-for="Renavam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label name="Brand" class="control-label">Brand</label>
+                @Html.DropDownListFor(item => item.Brand.Id, new SelectList(ViewBag.AvailableBrands, "Id", "Name"), new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label asp-for="YearCreation" class="control-label"></label>
+                <input asp-for="YearCreation" class="form-control" />
+                <span asp-validation-for="YearCreation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="YearModel" class="control-label"></label>
+                <input asp-for="YearModel" class="form-control" />
+                <span asp-validation-for="YearModel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quilometers" class="control-label"></label>
+                <input asp-for="Quilometers" class="form-control" />
+                <span asp-validation-for="Quilometers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Value" class="control-label"></label>
+                <input asp-for="Value" class="form-control" />
+                <span asp-validation-for="Value" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label name="Owner" class="control-label">Owner</label>
+                @Html.DropDownListFor(item => item.Owner.Id, new SelectList(ViewBag.AvailableOwners, "Id", "Name"), new { @class = "form-control" })
+            </div>
+            <div class="form-group" style="margin: 2px;">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Vehicle">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

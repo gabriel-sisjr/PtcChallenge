@@ -1,0 +1,12 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "ConnectionStrings": {
+    "Database": "server=localhost;Port=3333;uid=root;database=hemoappdb"
+  },
+  "AllowedHosts": "*"
+}
